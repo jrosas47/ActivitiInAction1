@@ -1,0 +1,8 @@
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+
+  <bean id="testBean" class="org.bpmnwithactiviti.osgi.TestBean" />
+  
+  <service ref="testBean" interface="org.activiti.engine.delegate.JavaDelegate" />
+  
+</blueprint>
+
