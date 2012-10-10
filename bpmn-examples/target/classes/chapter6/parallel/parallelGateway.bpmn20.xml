@@ -1,0 +1,30 @@
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+	xmlns:activiti="http://activiti.org/bpmn" targetNamespace="http://www.bpmnwithactiviti.org/parallelgateway">
+	
+	<process id="multitaskingProcess" name="Multitasking process">
+		<startEvent id="theStart" />
+		<sequenceFlow sourceRef="theStart" targetRef="fork" />
+		<parallelGateway id="fork" />
+		<sequenceFlow sourceRef="fork" targetRef="twitterTask" />
+		<sequenceFlow sourceRef="fork" targetRef="coffeebreak" />
+		<manualTask id="twitterTask" />
+		<sequenceFlow sourceRef="twitterTask" targetRef="facebookTask" />
+		<manualTask id="facebookTask" />
+		<sequenceFlow sourceRef="facebookTask" targetRef="backlogEmailTask" />
+		<userTask id="backlogEmailTask" name="Read email backlog" activiti:assignee="kermit"/>
+		<sequenceFlow sourceRef="backlogEmailTask" targetRef="join" />
+		<intermediateCatchEvent id="coffeebreak">
+	        <timerEventDefinition>
+	            <timeDuration>PT30S</timeDuration>
+	        </timerEventDefinition>
+	    </intermediateCatchEvent>
+		<sequenceFlow sourceRef="coffeebreak" targetRef="doWorkTask" />
+		<userTask id="doWorkTask" name="Do work" activiti:assignee="kermit" />
+		<sequenceFlow sourceRef="doWorkTask" targetRef="join" />
+		<parallelGateway id="join" />
+		<sequenceFlow sourceRef="join" targetRef="endOfWorkDayTask" />
+		<userTask id="endOfWorkDayTask" name="Finish work day" activiti:assignee="kermit"/>
+		<sequenceFlow sourceRef="endOfWorkDayTask" targetRef="theEnd" />
+		<endEvent id="theEnd" />
+	</process>
+</definitions>
