@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.signavio.com/bpmn20">
+  <process id="sid-98c5bc3c-4901-4eb4-a1fe-9c2842c5a02e">
+    <startEvent id="sid-5C867EF9-93C4-42B6-A2F4-A07C5D44D029"></startEvent>
+    <parallelGateway id="sid-69B10D88-454B-45B5-8A5E-D843E2048BCB" name=""></parallelGateway>
+    <parallelGateway id="sid-851EAF85-11EC-48BA-8E81-05F5A4800629" name=""></parallelGateway>
+    <userTask id="sid-F8013B3C-603F-4A81-85C5-B45E43AA3850" name="Prepare book for shipping" activiti:assignee="kermit"></userTask>
+    <userTask id="sid-B049F6D1-BFDC-4EFF-9270-B92017FC536C" name="send mail with arribal date" activiti:assignee="kermit"></userTask>
+    <endEvent id="sid-7AFB097C-A35B-45A5-95B1-E272FB3E77F0"></endEvent>
+    <sequenceFlow id="flow1" name="" sourceRef="sid-5C867EF9-93C4-42B6-A2F4-A07C5D44D029" targetRef="sid-69B10D88-454B-45B5-8A5E-D843E2048BCB"></sequenceFlow>
+    <sequenceFlow id="flow2" name="" sourceRef="sid-69B10D88-454B-45B5-8A5E-D843E2048BCB" targetRef="scripttask1"></sequenceFlow>
+    <sequenceFlow id="flow3" name="" sourceRef="sid-69B10D88-454B-45B5-8A5E-D843E2048BCB" targetRef="sid-F8013B3C-603F-4A81-85C5-B45E43AA3850"></sequenceFlow>
+    <sequenceFlow id="flow4" name="" sourceRef="scripttask1" targetRef="sid-851EAF85-11EC-48BA-8E81-05F5A4800629"></sequenceFlow>
+    <sequenceFlow id="flow5" name="" sourceRef="sid-F8013B3C-603F-4A81-85C5-B45E43AA3850" targetRef="sid-851EAF85-11EC-48BA-8E81-05F5A4800629"></sequenceFlow>
+    <sequenceFlow id="flow6" name="" sourceRef="sid-851EAF85-11EC-48BA-8E81-05F5A4800629" targetRef="sid-B049F6D1-BFDC-4EFF-9270-B92017FC536C"></sequenceFlow>
+    <sequenceFlow id="flow7" name="" sourceRef="sid-B049F6D1-BFDC-4EFF-9270-B92017FC536C" targetRef="usertask1"></sequenceFlow>
+    <sequenceFlow id="flow8" name="" sourceRef="usertask1" targetRef="sid-7AFB097C-A35B-45A5-95B1-E272FB3E77F0"></sequenceFlow>
+    <scriptTask id="scripttask1" name="Process payment" scriptFormat="groovy">
+      <script><![CDATA[out:println "Processing Payment";]]></script>
+    </scriptTask>
+    <userTask id="usertask1" name="send shipment" activiti:assignee="kermit"></userTask>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_sid-98c5bc3c-4901-4eb4-a1fe-9c2842c5a02e">
+    <bpmndi:BPMNPlane bpmnElement="sid-98c5bc3c-4901-4eb4-a1fe-9c2842c5a02e" id="BPMNPlane_sid-98c5bc3c-4901-4eb4-a1fe-9c2842c5a02e">
+      <bpmndi:BPMNShape bpmnElement="sid-5C867EF9-93C4-42B6-A2F4-A07C5D44D029" id="BPMNShape_sid-5C867EF9-93C4-42B6-A2F4-A07C5D44D029">
+        <omgdc:Bounds height="35" width="35" x="75" y="245"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-69B10D88-454B-45B5-8A5E-D843E2048BCB" id="BPMNShape_sid-69B10D88-454B-45B5-8A5E-D843E2048BCB">
+        <omgdc:Bounds height="40" width="40" x="150" y="240"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-851EAF85-11EC-48BA-8E81-05F5A4800629" id="BPMNShape_sid-851EAF85-11EC-48BA-8E81-05F5A4800629">
+        <omgdc:Bounds height="40" width="40" x="420" y="240"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-F8013B3C-603F-4A81-85C5-B45E43AA3850" id="BPMNShape_sid-F8013B3C-603F-4A81-85C5-B45E43AA3850">
+        <omgdc:Bounds height="80" width="100" x="255" y="300"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-B049F6D1-BFDC-4EFF-9270-B92017FC536C" id="BPMNShape_sid-B049F6D1-BFDC-4EFF-9270-B92017FC536C">
+        <omgdc:Bounds height="80" width="100" x="495" y="220"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-7AFB097C-A35B-45A5-95B1-E272FB3E77F0" id="BPMNShape_sid-7AFB097C-A35B-45A5-95B1-E272FB3E77F0">
+        <omgdc:Bounds height="35" width="35" x="825" y="246"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="scripttask1" id="BPMNShape_scripttask1">
+        <omgdc:Bounds height="80" width="100" x="240" y="135"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask1" id="BPMNShape_usertask1">
+        <omgdc:Bounds height="80" width="100" x="650" y="220"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="110" y="262"></omgdi:waypoint>
+        <omgdi:waypoint x="150" y="260"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="170" y="240"></omgdi:waypoint>
+        <omgdi:waypoint x="170" y="175"></omgdi:waypoint>
+        <omgdi:waypoint x="240" y="175"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="170" y="280"></omgdi:waypoint>
+        <omgdi:waypoint x="170" y="340"></omgdi:waypoint>
+        <omgdi:waypoint x="255" y="340"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
+        <omgdi:waypoint x="340" y="175"></omgdi:waypoint>
+        <omgdi:waypoint x="440" y="175"></omgdi:waypoint>
+        <omgdi:waypoint x="440" y="240"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
+        <omgdi:waypoint x="355" y="340"></omgdi:waypoint>
+        <omgdi:waypoint x="440" y="340"></omgdi:waypoint>
+        <omgdi:waypoint x="440" y="280"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
+        <omgdi:waypoint x="460" y="260"></omgdi:waypoint>
+        <omgdi:waypoint x="495" y="260"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow7" id="BPMNEdge_flow7">
+        <omgdi:waypoint x="595" y="260"></omgdi:waypoint>
+        <omgdi:waypoint x="650" y="260"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow8" id="BPMNEdge_flow8">
+        <omgdi:waypoint x="750" y="260"></omgdi:waypoint>
+        <omgdi:waypoint x="825" y="263"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
