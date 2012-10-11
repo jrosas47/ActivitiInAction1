@@ -49,8 +49,7 @@ public class LDAPGroupManager extends GroupManager {
 		throw new ActivitiException("LDAP group manager doesn't support deleting a new group");
   }
 
-	@Override
-  public List<Group> findGroupByQueryCriteria(Object query, Page page) {
+	public List<Group> findGroupByQueryCriteria(Object query, Page page) {
 		List<Group> groupList = new ArrayList<Group>();
 		
 	  // Query is a GroupQueryImpl instance
@@ -98,8 +97,7 @@ public class LDAPGroupManager extends GroupManager {
 		return groupList;
   }
 
-	@Override
-  public long findGroupCountByQueryCriteria(Object query) {
+	public long findGroupCountByQueryCriteria(Object query) {
 	  return findGroupByQueryCriteria(query, null).size();
   }
 

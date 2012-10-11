@@ -55,8 +55,7 @@ public class LDAPUserManager extends UserManager {
 		throw new ActivitiException("LDAP user manager doesn't support deleting a user");
   }
 
-	@Override
-  public List<User> findUserByQueryCriteria(Object query, Page page) {
+	public List<User> findUserByQueryCriteria(Object query, Page page) {
 		
 		List<User> userList = new ArrayList<User>();
 		
@@ -107,8 +106,7 @@ public class LDAPUserManager extends UserManager {
 		return userList;
   }
 
-	@Override
-  public long findUserCountByQueryCriteria(Object query) {
+	public long findUserCountByQueryCriteria(Object query) {
 	  return findUserByQueryCriteria(query, null).size();
   }
 
